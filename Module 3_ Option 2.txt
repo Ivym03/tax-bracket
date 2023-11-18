@@ -1,0 +1,31 @@
+﻿Option 2: Creating a Program to Calculate Weekly Average Tax Withholding
+
+
+# Dictionary to store income brackets and corresponding tax rates
+tax_brackets = {
+    500: 0.10, # 10% tax for income less than 500
+    1500: 0.15, # 15% tax for income greater than/equal to $500 and less than $1500
+    2500: 0.20, # 20% tax for income greater than/equal to $1500 and less than $2500
+ }
+# Prompt user for income
+income = float(input("Enter your weekly income: $"))
+Enter your weekly income: $1200
+# Determine tax rate based on income brackets
+tax_rate = 0
+for bracket, rate in tax_brackets.items():
+    if income < bracket:
+        tax_rate = rate
+        break
+    else:
+        tax_rate = 0.30 # 30% tax for income greater than/equal to $2500
+
+
+tax = income * tax_rate
+# Print income, tax rate, and tax
+print(f"Income: ${income:.2f}")
+
+
+print(f"Tax Rate: {tax_rate * 100}%")
+
+
+print(f"Tax: ${tax:.2f}")
