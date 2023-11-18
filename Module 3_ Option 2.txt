@@ -1,6 +1,3 @@
-﻿Option 2: Creating a Program to Calculate Weekly Average Tax Withholding
-
-
 # Dictionary to store income brackets and corresponding tax rates
 tax_brackets = {
     500: 0.10, # 10% tax for income less than 500
