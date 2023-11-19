@@ -1,28 +1,35 @@
-# Dictionary to store income brackets and corresponding tax rates
+# Income brackets and tax rates dictionary
 tax_brackets = {
-    500: 0.10, # 10% tax for income less than 500
-    1500: 0.15, # 15% tax for income greater than/equal to $500 and less than $1500
-    2500: 0.20, # 20% tax for income greater than/equal to $1500 and less than $2500
- }
+    500: 0.10,   # 10% tax rate for income less than $500
+    1500: 0.15,  # 15% tax rate for income greater than/equal to $500 and less than $1500
+    2500: 0.20,  # 20% tax rate for income greater than/equal to $1500 and less than $2500
+    float('inf'): 0.30  # 30% tax rate for income greater than/equal to $2500
+    }
 # Prompt user for income
-income = float(input("Enter your weekly income: $"))
+while True:
+    try:
+        income = float(input("Enter your weekly income: $"))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for income.")
+
+        
 Enter your weekly income: $1200
-# Determine tax rate based on income brackets
+# Calculate tax rate based on income
 tax_rate = 0
 for bracket, rate in tax_brackets.items():
     if income < bracket:
         tax_rate = rate
         break
-    else:
-        tax_rate = 0.30 # 30% tax for income greater than/equal to $2500
 
+    
+# Calculate tax withholding
+tax_withholding = income * tax_rate
+# Print income, tax rate, and tax withholding
+print(f"\nIncome: ${income:.2f}")
 
-tax = income * tax_rate
-# Print income, tax rate, and tax
-print(f"Income: ${income:.2f}")
-
-
+Income: $1200.00
 print(f"Tax Rate: {tax_rate * 100}%")
-
-
-print(f"Tax: ${tax:.2f}")
+Tax Rate: 15.0%
+print(f"Tax Withholding: ${tax_withholding:.2f}")
+Tax Withholding: $180.00
